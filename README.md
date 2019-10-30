@@ -1,5 +1,9 @@
 # API HFMaracay [.Net]
 API en .Net para el Website de HFMaracay - &#35;HacktoberFest2019
+# API HFMaracay [.Net] Tecnologias Usadas
+* **.Net Core 3.0** 
+* **.Eentity Framework* 
+* **.Postgre SQL / MSSQL Server* 
 
 ## Autores✒️
 * **Dayan Betancourt** - *Líder de HFMaracay y Desarrolladora Web* - [delfinbeta](https://github.com/delfinbeta)
