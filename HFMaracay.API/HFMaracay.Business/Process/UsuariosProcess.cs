@@ -7,7 +7,7 @@ namespace HFMaracay.Business.Process
 {
     public class UsuariosProcess : Process, IUsuariosProcess
     {
-        public List<Usuarios> ListAllUsers()
+        public List<Usuarios> ListAll()
         {
             return Context.Usuarios.ToList();
         }
@@ -41,7 +41,7 @@ namespace HFMaracay.Business.Process
             return usuario;
         }
 
-        public void DeleteUserByID(int id)
+        public void DeleteByID(int id)
         {
             Context.Remove(Context.Usuarios.Single(a => a.Id == id));
             Context.SaveChanges();

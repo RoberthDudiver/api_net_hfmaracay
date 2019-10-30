@@ -83,7 +83,32 @@ namespace HFMaracay.API.Controllers
         {
             return Ok(_nivelProcess.Save(model));
         }
+
+
+        [HttpGet]
+        [AllowAnonymous] // esto deberia tenr seguridad pero por tiempo no lo hare 
+        [Route("getlevels")]
+        public dynamic GetNiveles()
+        {
+            return Ok(_nivelProcess.ListAll());
+        }
         
+        [HttpDelete]
+        [AllowAnonymous] // esto deberia tenr seguridad pero por tiempo no lo hare 
+        [Route("deletelevels/{id}")]
+        public dynamic DeleteNiveles(int id)
+        {
+            try
+            {
+                _nivelProcess.DeleteByID(id);
+                return Ok("Sucess");
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+
         [HttpPost]
         [AllowAnonymous] // esto deberia tenr seguridad pero por tiempo no lo hare 
         [Route("addlocations")]
@@ -93,6 +118,30 @@ namespace HFMaracay.API.Controllers
         }
 
 
+        [HttpGet]
+        [AllowAnonymous] // esto deberia tenr seguridad pero por tiempo no lo hare 
+        [Route("getlocations")]
+        public dynamic Getlocations()
+        {
+            return Ok(_localidadesProcess.ListAll());
+        }
+
+        [HttpDelete]
+        [AllowAnonymous] // esto deberia tenr seguridad pero por tiempo no lo hare 
+        [Route("deletelocations/{id}")]
+        public dynamic DeleteLocations(int id)
+        {
+            try
+            {
+                _localidadesProcess.DeleteByID(id);
+                return Ok("Sucess");
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+
         [HttpPost]
         [AllowAnonymous] // esto deberia tenr seguridad pero por tiempo no lo hare 
         [Route("addtypelocations")]
@@ -100,5 +149,78 @@ namespace HFMaracay.API.Controllers
         {
             return Ok(_tipoLocalidadesProcess.Save(model));
         }
+
+        [HttpGet]
+        [AllowAnonymous] // esto deberia tenr seguridad pero por tiempo no lo hare 
+        [Route("gettypelocations")]
+        public dynamic Gettypelocations()
+        {
+            return Ok(_tipoLocalidadesProcess.ListAll());
+        }
+
+        [HttpDelete]
+        [AllowAnonymous] // esto deberia tenr seguridad pero por tiempo no lo hare 
+        [Route("deletelocations/{id}")]
+        public dynamic Deletetypelocations(int id)
+        {
+            try
+            {
+                _tipoLocalidadesProcess.DeleteByID(id);
+                return Ok("Sucess");
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+
+
+        [HttpGet]
+        [AllowAnonymous] // esto deberia tenr seguridad pero por tiempo no lo hare 
+        [Route("getusers")]
+        public dynamic Getusers()
+        {
+            return Ok(_usuariosProcess.ListAll());
+        }
+          [HttpGet]
+        [AllowAnonymous] // esto deberia tenr seguridad pero por tiempo no lo hare 
+        [Route("getusers/email/{email}")]
+        public dynamic Getusers(string email)
+        {
+            return Ok(_usuariosProcess.GetUsersByEmail(email));
+        }
+
+        [HttpDelete]
+        [AllowAnonymous] // esto deberia tenr seguridad pero por tiempo no lo hare 
+        [Route("deleteuser/{id}")]
+        public dynamic DeleteUser(int id)
+        {
+            try
+            {
+                _usuariosProcess.DeleteByID(id);
+                return Ok("Sucess");
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+
+        [HttpDelete]
+        [AllowAnonymous] // esto deberia tenr seguridad pero por tiempo no lo hare 
+        [Route("deleteuser/email/{email}")]
+        public dynamic DeleteUserByemail(string email)
+        {
+            try
+            {
+                _usuariosProcess.DeleteUserByEmail(email);
+                return Ok("Sucess");
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+
     }
 }

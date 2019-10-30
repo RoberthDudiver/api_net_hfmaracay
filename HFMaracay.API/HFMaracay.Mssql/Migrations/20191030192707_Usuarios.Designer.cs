@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HFMaracay.Mssql.Migrations
 {
     [DbContext(typeof(SqlServerContext))]
-    [Migration("20191030181214_usuarios")]
-    partial class usuarios
+    [Migration("20191030192707_Usuarios")]
+    partial class Usuarios
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -49,23 +49,17 @@ namespace HFMaracay.Mssql.Migrations
                     b.Property<string>("Nombre")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ParentCode")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int?>("ParentId")
                         .HasColumnType("int");
 
-                    b.Property<string>("TipoLocalidadesId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("TipoLocalidadesId1")
+                    b.Property<int?>("TipoLocalidadesId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ParentId");
 
-                    b.HasIndex("TipoLocalidadesId1");
+                    b.HasIndex("TipoLocalidadesId");
 
                     b.ToTable("Localidades");
                 });
@@ -166,7 +160,7 @@ namespace HFMaracay.Mssql.Migrations
 
                     b.HasOne("HFMaracay.Entities.TipoLocalidades", "TipoLocalidades")
                         .WithMany("Localidades")
-                        .HasForeignKey("TipoLocalidadesId1");
+                        .HasForeignKey("TipoLocalidadesId");
                 });
 
             modelBuilder.Entity("HFMaracay.Entities.Usuarios", b =>

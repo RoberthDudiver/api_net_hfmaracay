@@ -6,10 +6,10 @@ namespace HFMaracay.Business.Process
     public interface IUsuariosProcess
     {
         void DeleteUserByEmail(string email);
-        void DeleteUserByID(int id);
+        void DeleteByID(int id);
         Usuarios GetUsersByEmail(string email);
         Usuarios GetUsersByName(string name);
-        List<Usuarios> ListAllUsers();
+        List<Usuarios> ListAll();
         Usuarios ListUsersById(int id);
         Usuarios Save(Usuarios usuario);
     }

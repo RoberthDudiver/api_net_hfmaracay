@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace HFMaracay.Psql.Migrations
 {
     [DbContext(typeof(PostgresqlContext))]
-    [Migration("20191030180913_usuarios")]
-    partial class usuarios
+    [Migration("20191030192115_Usuarios")]
+    partial class Usuarios
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -49,23 +49,17 @@ namespace HFMaracay.Psql.Migrations
                     b.Property<string>("Nombre")
                         .HasColumnType("text");
 
-                    b.Property<string>("ParentCode")
-                        .HasColumnType("text");
-
                     b.Property<int?>("ParentId")
                         .HasColumnType("integer");
 
-                    b.Property<string>("TipoLocalidadesId")
-                        .HasColumnType("text");
-
-                    b.Property<int?>("TipoLocalidadesId1")
+                    b.Property<int?>("TipoLocalidadesId")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ParentId");
 
-                    b.HasIndex("TipoLocalidadesId1");
+                    b.HasIndex("TipoLocalidadesId");
 
                     b.ToTable("Localidades");
                 });
@@ -166,7 +160,7 @@ namespace HFMaracay.Psql.Migrations
 
                     b.HasOne("HFMaracay.Entities.TipoLocalidades", "TipoLocalidades")
                         .WithMany("Localidades")
-                        .HasForeignKey("TipoLocalidadesId1");
+                        .HasForeignKey("TipoLocalidadesId");
                 });
 
             modelBuilder.Entity("HFMaracay.Entities.Usuarios", b =>

@@ -5,7 +5,7 @@ namespace HFMaracay.Business.Process
 {
     public interface INivelProcess
     {
-        void DeletByID(int id);
+        void DeleteByID(int id);
         Nivel GetByDescripcion(string Descripcion);
         List<Nivel> ListAll();
         Nivel ListById(int id);

@@ -21,3 +21,41 @@ VALUES('Estudiante ');
 INSERT INTO public."Niveles"
 ("Descripcion")
 VALUES('Profesional');
+
+delete from  public."TipoLocalidades";
+delete from  public."Localidades";
+
+INSERT INTO public."TipoLocalidades"
+("Id","Nombre")
+VALUES('1','Pais');
+
+INSERT INTO public."TipoLocalidades"
+("Id","Nombre")
+VALUES('2','Estado');
+
+INSERT INTO public."TipoLocalidades"
+("Id","Nombre")
+VALUES('3','Ciuda');
+
+INSERT INTO public."TipoLocalidades"
+("Id","Nombre")
+VALUES('4','Jurisdiccion');
+
+INSERT INTO public."TipoLocalidades"
+("Id","Nombre")
+VALUES('5','Provincia');
+
+
+INSERT INTO public."Localidades"
+("Id","IsoCode", "Nombre",  "TipoLocalidadesId", "ParentId")
+VALUES(1,'VE', 'Venezuela',  1,  null);
+
+
+INSERT INTO public."Localidades"
+("Id","IsoCode", "Nombre",   "TipoLocalidadesId", "ParentId")
+VALUES(2,'VE-ARG', 'Aragua',  2, 1);
+
+INSERT INTO public."Localidades"
+("Id","IsoCode", "Nombre",   "TipoLocalidadesId", "ParentId")
+VALUES(3,'VE-MRC', 'Maracay',  3, 2);
+

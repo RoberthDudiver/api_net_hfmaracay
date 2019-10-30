@@ -2,7 +2,7 @@
 
 namespace HFMaracay.Mssql.Migrations
 {
-    public partial class usuarios : Migration
+    public partial class Usuarios : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -91,9 +91,7 @@ namespace HFMaracay.Mssql.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     IsoCode = table.Column<string>(nullable: true),
                     Nombre = table.Column<string>(nullable: true),
-                    ParentCode = table.Column<string>(nullable: true),
-                    TipoLocalidadesId1 = table.Column<int>(nullable: true),
-                    TipoLocalidadesId = table.Column<string>(nullable: true),
+                    TipoLocalidadesId = table.Column<int>(nullable: true),
                     ParentId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
@@ -106,8 +104,8 @@ namespace HFMaracay.Mssql.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Localidades_TipoLocalidades_TipoLocalidadesId1",
-                        column: x => x.TipoLocalidadesId1,
+                        name: "FK_Localidades_TipoLocalidades_TipoLocalidadesId",
+                        column: x => x.TipoLocalidadesId,
                         principalTable: "TipoLocalidades",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -119,9 +117,9 @@ namespace HFMaracay.Mssql.Migrations
                 column: "ParentId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Localidades_TipoLocalidadesId1",
+                name: "IX_Localidades_TipoLocalidadesId",
                 table: "Localidades",
-                column: "TipoLocalidadesId1");
+                column: "TipoLocalidadesId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Usuarios_AreaId",

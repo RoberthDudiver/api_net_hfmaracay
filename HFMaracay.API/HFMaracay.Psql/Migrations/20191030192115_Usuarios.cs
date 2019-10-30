@@ -1,10 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using System.IO;
 
 namespace HFMaracay.Psql.Migrations
 {
-    public partial class usuarios : Migration
+    public partial class Usuarios : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -93,9 +92,7 @@ namespace HFMaracay.Psql.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     IsoCode = table.Column<string>(nullable: true),
                     Nombre = table.Column<string>(nullable: true),
-                    ParentCode = table.Column<string>(nullable: true),
-                    TipoLocalidadesId1 = table.Column<int>(nullable: true),
-                    TipoLocalidadesId = table.Column<string>(nullable: true),
+                    TipoLocalidadesId = table.Column<int>(nullable: true),
                     ParentId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
@@ -108,8 +105,8 @@ namespace HFMaracay.Psql.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Localidades_TipoLocalidades_TipoLocalidadesId1",
-                        column: x => x.TipoLocalidadesId1,
+                        name: "FK_Localidades_TipoLocalidades_TipoLocalidadesId",
+                        column: x => x.TipoLocalidadesId,
                         principalTable: "TipoLocalidades",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -121,9 +118,9 @@ namespace HFMaracay.Psql.Migrations
                 column: "ParentId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Localidades_TipoLocalidadesId1",
+                name: "IX_Localidades_TipoLocalidadesId",
                 table: "Localidades",
-                column: "TipoLocalidadesId1");
+                column: "TipoLocalidadesId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Usuarios_AreaId",
@@ -134,7 +131,6 @@ namespace HFMaracay.Psql.Migrations
                 name: "IX_Usuarios_NivelId",
                 table: "Usuarios",
                 column: "NivelId");
-
 
             var sql = File.ReadAllText("scripts/PopulateData.txt");
             migrationBuilder.Sql(sql);

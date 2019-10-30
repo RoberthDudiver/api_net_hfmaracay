@@ -36,7 +36,7 @@ namespace HFMaracay.Business.Process
             return item;
         }
 
-        public void DeletByID(int id)
+        public void DeleteByID(int id)
         {
             Context.Remove(Context.Niveles.Single(a => a.Id == id));
             Context.SaveChanges();

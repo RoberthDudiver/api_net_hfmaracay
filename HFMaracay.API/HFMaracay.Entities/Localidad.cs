@@ -15,11 +15,8 @@ namespace HFMaracay.Entities
         public string Nombre
         { get; set; }
 
-        public string ParentCode
-        { get; set; }
+        public virtual TipoLocalidades TipoLocalidades { get; set; }
 
-        public TipoLocalidades TipoLocalidades { get; set; }
-        public string TipoLocalidadesId { get; set; }
         public virtual Localidad Parent { get; set; }
 
     }
