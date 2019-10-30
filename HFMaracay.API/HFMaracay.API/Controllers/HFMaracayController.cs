@@ -24,7 +24,25 @@ namespace HFMaracay.API.Controllers
         private readonly IUsuariosProcess _usuariosProcess;
         private readonly ITipoLocalidadesProcess _tipoLocalidadesProcess;
         private readonly ILocalidadesProcess _localidadesProcess;
+        private readonly IEventosProcess _eventosProcess;
+        private readonly IBlogProcess _blogProcess;
+        private readonly IGaleriaProcess _galeriaProcess;
+
+
+
         #endregion
+        public HFMaracayController(IGaleriaProcess galeriaProcess, IBlogProcess blogProcess, IEventosProcess eventosProcess, IAreasProcess areasProcess, INivelProcess nivelProcess, IUsuariosProcess usuariosProcess, ITipoLocalidadesProcess tipoLocalidadesProcess, ILocalidadesProcess localidadesProcess)
+        {
+            _nivelProcess = nivelProcess;
+            _areasProcess = areasProcess;
+            _usuariosProcess = usuariosProcess;
+            _tipoLocalidadesProcess = tipoLocalidadesProcess;
+            _localidadesProcess = localidadesProcess;
+            _eventosProcess = eventosProcess;
+            _blogProcess = blogProcess;
+            _galeriaProcess = galeriaProcess;
+        }
+
         public HFMaracayController(IAreasProcess areasProcess,INivelProcess nivelProcess, IUsuariosProcess usuariosProcess, ITipoLocalidadesProcess tipoLocalidadesProcess, ILocalidadesProcess localidadesProcess)
         {
             _nivelProcess = nivelProcess;
@@ -108,6 +126,9 @@ namespace HFMaracay.API.Controllers
                 throw;
             }
         }
+
+
+
 
         [HttpPost]
         [AllowAnonymous] // esto deberia tenr seguridad pero por tiempo no lo hare 
@@ -221,6 +242,112 @@ namespace HFMaracay.API.Controllers
                 throw;
             }
         }
+
+        ////////////////////////////////////////
+        ///
+        [HttpPost]
+        [AllowAnonymous] // esto deberia tenr seguridad pero por tiempo no lo hare 
+        [Route("addgalery")]
+        public dynamic AddGalery([FromBody]Galeria model)
+        {
+            return Ok(_galeriaProcess.Save(model));
+        }
+
+
+        [HttpGet]
+        [AllowAnonymous] // esto deberia tenr seguridad pero por tiempo no lo hare 
+        [Route("getgalery")]
+        public dynamic GetGalery()
+        {
+            return Ok(_galeriaProcess.ListAll());
+        }
+
+        [HttpDelete]
+        [AllowAnonymous] // esto deberia tenr seguridad pero por tiempo no lo hare 
+        [Route("deletegalery/{id}")]
+        public dynamic DeleteGalery(int id)
+        {
+            try
+            {
+                _galeriaProcess.DeleteByID(id);
+                return Ok("Sucess");
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+        /////////////////////
+        ///
+
+        [HttpPost]
+        [AllowAnonymous] // esto deberia tenr seguridad pero por tiempo no lo hare 
+        [Route("addlevents")]
+        public dynamic AddEvents([FromBody]Eventos model)
+        {
+            return Ok(_eventosProcess.Save(model));
+        }
+
+
+        [HttpGet]
+        [AllowAnonymous] // esto deberia tenr seguridad pero por tiempo no lo hare 
+        [Route("getlevents")]
+        public dynamic GetEvents()
+        {
+            return Ok(_eventosProcess.ListAll());
+        }
+
+        [HttpDelete]
+        [AllowAnonymous] // esto deberia tenr seguridad pero por tiempo no lo hare 
+        [Route("deleteevents/{id}")]
+        public dynamic DeleteEvents(int id)
+        {
+            try
+            {
+                _eventosProcess.DeleteByID(id);
+                return Ok("Sucess");
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+
+        //////
+        ///
+        [HttpPost]
+        [AllowAnonymous] // esto deberia tenr seguridad pero por tiempo no lo hare 
+        [Route("addlBlog")]
+        public dynamic AddBlog([FromBody]Blog model)
+        {
+            return Ok(_blogProcess.Save(model));
+        }
+
+
+        [HttpGet]
+        [AllowAnonymous] // esto deberia tenr seguridad pero por tiempo no lo hare 
+        [Route("getlBlog")]
+        public dynamic GetBlog()
+        {
+            return Ok(_blogProcess.ListAll());
+        }
+
+        [HttpDelete]
+        [AllowAnonymous] // esto deberia tenr seguridad pero por tiempo no lo hare 
+        [Route("deletelBlog/{id}")]
+        public dynamic DeleteBlog(int id)
+        {
+            try
+            {
+                _blogProcess.DeleteByID(id);
+                return Ok("Sucess");
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+
 
     }
 }

@@ -31,7 +31,9 @@ namespace HFMaracay.API
             services.AddScoped<IUsuariosProcess, UsuariosProcess>();
             services.AddScoped<ITipoLocalidadesProcess, TipoLocalidadesProcess>();
             services.AddScoped<ILocalidadesProcess, LocalidadesProcess>();
-
+            services.AddScoped<IGaleriaProcess, GaleriaProcess>();
+            services.AddScoped<IEventosProcess, EventosProcess>();
+            services.AddScoped<IBlogProcess, BlogProcess>();       
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

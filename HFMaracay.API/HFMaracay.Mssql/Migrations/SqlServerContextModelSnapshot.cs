@@ -55,6 +55,39 @@ namespace HFMaracay.Mssql.Migrations
                     b.ToTable("Blogs");
                 });
 
+            modelBuilder.Entity("HFMaracay.Entities.Eventos", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Descripción")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Fecha")
+                        .HasColumnType("datetime2");
+
+                    b.Property<long>("FechaEpoch")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Hora")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Imagen")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Lugar")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Nombre")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Eventos");
+                });
+
             modelBuilder.Entity("HFMaracay.Entities.Galeria", b =>
                 {
                     b.Property<int>("Id")
