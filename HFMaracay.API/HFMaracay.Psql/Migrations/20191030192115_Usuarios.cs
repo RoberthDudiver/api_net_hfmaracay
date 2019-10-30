@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-
+using System.IO;
 namespace HFMaracay.Psql.Migrations
 {
     public partial class Usuarios : Migration

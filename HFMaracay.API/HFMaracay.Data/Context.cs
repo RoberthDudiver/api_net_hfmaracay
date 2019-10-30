@@ -12,6 +12,8 @@ namespace HFMaracay.Data
         public DbSet<Localidad> Localidades { get; set; }
         public DbSet<Nivel> Niveles { get; set; }
         public DbSet<TipoLocalidades> TipoLocalidades { get; set; }
+        public DbSet<Blog> Blogs { get; set; }
+        public DbSet<Galeria> Galeria { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
