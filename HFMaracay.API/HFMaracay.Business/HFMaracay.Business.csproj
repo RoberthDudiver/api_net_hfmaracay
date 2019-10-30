@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HFMaracay.Core\HFMaracay.Core.csproj" />
+    <ProjectReference Include="..\HFMaracay.Data\HFMaracay.Data.csproj" />
+    <ProjectReference Include="..\HFMaracay.Entities\HFMaracay.Entities.csproj" />
+  </ItemGroup>
+
+</Project>

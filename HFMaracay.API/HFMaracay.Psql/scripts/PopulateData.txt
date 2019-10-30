@@ -1,0 +1,23 @@
+﻿INSERT INTO public."Areas"
+("Descripcion")
+VALUES('Programación');
+INSERT INTO public."Areas"
+("Descripcion")
+VALUES('Diseño');
+INSERT INTO public."Areas"
+("Descripcion")
+VALUES('Marketing');
+INSERT INTO public."Areas"
+("Descripcion")
+VALUES('Finanzas');
+INSERT INTO public."Areas"
+("Descripcion")
+VALUES('Emprendimiento');
+
+INSERT INTO public."Niveles"
+("Descripcion")
+VALUES('Estudiante ');
+
+INSERT INTO public."Niveles"
+("Descripcion")
+VALUES('Profesional');
