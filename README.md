@@ -15,7 +15,7 @@ Ejecutar HFMaracay.API
 
 * **ATT**
 
-* **Roberth Dudiver** - [delfinbeta](https://www.linkedin.com/in/dudiver)
+* **Roberth Dudiver** - [RoberthDudiver](https://www.linkedin.com/in/dudiver)
 ## Autores✒️
 * **Dayan Betancourt** - *Líder de HFMaracay y Desarrolladora Web* - [delfinbeta](https://github.com/delfinbeta)
 * **Marco Hernández** - *Co-líder de HFMaracay e Ing. Geólogo* - [marcoah](https://github.com/marcoah)
