@@ -12,5 +12,8 @@ namespace HFMaracay.Business.Process
         List<Usuarios> ListAll();
         Usuarios ListUsersById(int id);
         Usuarios Save(Usuarios usuario);
+
+        void SoftDeleteByEmail(Usuarios item);
+
     }
 }

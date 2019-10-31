@@ -4,7 +4,7 @@ using System.Text;
 
 namespace HFMaracay.Entities
 {
-    public class Blog
+    public class Blog : EntitiesBitacora
     {
         public int Id
         { get; set; }

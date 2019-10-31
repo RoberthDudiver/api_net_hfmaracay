@@ -14,7 +14,7 @@ namespace HFMaracay.Business.Process
 
         public Blog ListById(int id)
         {
-            return Context.Blogs.FirstOrDefault(x => x.Id == id);
+            return Context.Blogs.FirstOrDefault(x => x.Id == id && !x.IsDeleted);
         }
 
         public Blog Save(Blog item)
@@ -37,6 +37,17 @@ namespace HFMaracay.Business.Process
             Context.SaveChanges();
         }
 
-
+        public void SoftDeleteByID(Blog item)
+        {
+            item.DateUpd = DateTime.Now;
+            
+                if (item.Id != 0)
+                {
+                    var Data = Context.Blogs.FirstOrDefault(x => x.Id == item.Id);
+                Data.IsDeleted = true;
+                }
+         
+            Context.SaveChanges();
+        }
     }
 }

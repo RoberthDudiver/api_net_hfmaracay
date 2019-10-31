@@ -14,12 +14,12 @@ namespace HFMaracay.Business.Process
 
         public Localidad ListById(int id)
         {
-            return Context.Localidades.FirstOrDefault(x => x.Id == id);
+            return Context.Localidades.FirstOrDefault(x => x.Id == id && !x.IsDeleted);
         }
 
         public Localidad GetByDescripcion(string nombre)
         {
-            return Context.Localidades.FirstOrDefault(x => x.Nombre == nombre);
+            return Context.Localidades.FirstOrDefault(x => x.Nombre == nombre && !x.IsDeleted);
         }
 
         public Localidad Save(Localidad item)
@@ -39,6 +39,25 @@ namespace HFMaracay.Business.Process
         public void DeleteByID(int id)
         {
             Context.Remove(Context.Localidades.Single(a => a.Id == id));
+            Context.SaveChanges();
+        }
+
+        public void SoftDeleteByID(Localidad item )
+        {
+            item.DateUpd = DateTime.Now;
+            if (item != null && item.Id != null && item.Id != 0)
+            {
+                Context.Localidades.Attach(item);
+                item.IsDeleted = true;
+            }
+            else
+            {
+                if (item.Id != 0)
+                {
+                    var Area = Context.Localidades.FirstOrDefault(x => x.Id == item.Id);
+                    Area.IsDeleted = true;
+                }
+            }
             Context.SaveChanges();
         }
     }

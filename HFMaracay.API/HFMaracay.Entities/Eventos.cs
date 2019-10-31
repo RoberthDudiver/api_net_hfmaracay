@@ -4,7 +4,7 @@ using System.Text;
 
 namespace HFMaracay.Entities
 {
-    public class Eventos
+    public class Eventos: EntitiesBitacora
     {
         public int Id
         { get; set; }

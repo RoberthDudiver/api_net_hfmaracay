@@ -9,5 +9,8 @@ namespace HFMaracay.Business.Process
         List<Eventos> ListAll();
         Eventos ListById(int id);
         Eventos Save(Eventos item);
+
+        void SoftDeleteByID(Eventos item);
+
     }
 }

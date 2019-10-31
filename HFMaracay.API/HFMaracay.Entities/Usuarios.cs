@@ -2,7 +2,7 @@
 
 namespace HFMaracay.Entities
 {
-    public class Usuarios
+    public class Usuarios: EntitiesBitacora
     {
 
         public int Id

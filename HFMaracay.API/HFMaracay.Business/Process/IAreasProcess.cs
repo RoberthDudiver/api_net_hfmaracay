@@ -10,5 +10,6 @@ namespace HFMaracay.Business.Process
         List<Areas> ListAll();
         Areas ListById(int id);
         Areas Save(Areas item);
+        void SoftDeleteByID(Areas item);
     }
 }

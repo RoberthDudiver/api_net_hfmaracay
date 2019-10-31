@@ -28,10 +28,15 @@ namespace HFMaracay.API.Controllers
         private readonly IBlogProcess _blogProcess;
         private readonly IGaleriaProcess _galeriaProcess;
 
-
-
         #endregion
-        public HFMaracayController(IGaleriaProcess galeriaProcess, IBlogProcess blogProcess, IEventosProcess eventosProcess, IAreasProcess areasProcess, INivelProcess nivelProcess, IUsuariosProcess usuariosProcess, ITipoLocalidadesProcess tipoLocalidadesProcess, ILocalidadesProcess localidadesProcess)
+        public HFMaracayController(IGaleriaProcess galeriaProcess, 
+            IBlogProcess blogProcess,
+            IEventosProcess eventosProcess,
+            IAreasProcess areasProcess, 
+            INivelProcess nivelProcess, 
+            IUsuariosProcess usuariosProcess,
+            ITipoLocalidadesProcess tipoLocalidadesProcess,
+            ILocalidadesProcess localidadesProcess)
         {
             _nivelProcess = nivelProcess;
             _areasProcess = areasProcess;
@@ -43,14 +48,6 @@ namespace HFMaracay.API.Controllers
             _galeriaProcess = galeriaProcess;
         }
 
-        public HFMaracayController(IAreasProcess areasProcess,INivelProcess nivelProcess, IUsuariosProcess usuariosProcess, ITipoLocalidadesProcess tipoLocalidadesProcess, ILocalidadesProcess localidadesProcess)
-        {
-            _nivelProcess = nivelProcess;
-            _areasProcess = areasProcess;
-            _usuariosProcess = usuariosProcess;
-            _tipoLocalidadesProcess = tipoLocalidadesProcess;
-            _localidadesProcess = localidadesProcess;
-        }
 
 
         [HttpPost]
@@ -58,7 +55,7 @@ namespace HFMaracay.API.Controllers
         [Route("adduser")]
         public dynamic AddUsers([FromBody]Usuarios model)
         {
-            return  Ok(_usuariosProcess.Save(model));
+            return Ok(_usuariosProcess.Save(model));
         }
 
 
@@ -86,9 +83,10 @@ namespace HFMaracay.API.Controllers
         {
             try
             {
-             _areasProcess.DeleteByID(id);
+                _areasProcess.DeleteByID(id);
                 return Ok("Sucess");
-            }catch(Exception e)
+            }
+            catch (Exception e)
             {
                 throw;
             }
@@ -110,7 +108,7 @@ namespace HFMaracay.API.Controllers
         {
             return Ok(_nivelProcess.ListAll());
         }
-        
+
         [HttpDelete]
         [AllowAnonymous] // esto deberia tenr seguridad pero por tiempo no lo hare 
         [Route("deletelevels/{id}")]
@@ -131,7 +129,7 @@ namespace HFMaracay.API.Controllers
 
 
         [HttpPost]
-        [AllowAnonymous] // esto deberia tenr seguridad pero por tiempo no lo hare 
+        [AllowAnonymous]
         [Route("addlocations")]
         public dynamic Addlocations([FromBody]Localidad model)
         {
@@ -140,7 +138,7 @@ namespace HFMaracay.API.Controllers
 
 
         [HttpGet]
-        [AllowAnonymous] // esto deberia tenr seguridad pero por tiempo no lo hare 
+        [AllowAnonymous]
         [Route("getlocations")]
         public dynamic Getlocations()
         {
@@ -148,7 +146,7 @@ namespace HFMaracay.API.Controllers
         }
 
         [HttpDelete]
-        [AllowAnonymous] // esto deberia tenr seguridad pero por tiempo no lo hare 
+        [AllowAnonymous]
         [Route("deletelocations/{id}")]
         public dynamic DeleteLocations(int id)
         {
@@ -164,7 +162,7 @@ namespace HFMaracay.API.Controllers
         }
 
         [HttpPost]
-        [AllowAnonymous] // esto deberia tenr seguridad pero por tiempo no lo hare 
+        [AllowAnonymous]
         [Route("addtypelocations")]
         public dynamic Addlocations([FromBody]TipoLocalidades model)
         {
@@ -172,7 +170,7 @@ namespace HFMaracay.API.Controllers
         }
 
         [HttpGet]
-        [AllowAnonymous] // esto deberia tenr seguridad pero por tiempo no lo hare 
+        [AllowAnonymous]
         [Route("gettypelocations")]
         public dynamic Gettypelocations()
         {
@@ -180,7 +178,7 @@ namespace HFMaracay.API.Controllers
         }
 
         [HttpDelete]
-        [AllowAnonymous] // esto deberia tenr seguridad pero por tiempo no lo hare 
+        [AllowAnonymous]
         [Route("deletelocations/{id}")]
         public dynamic Deletetypelocations(int id)
         {
@@ -197,14 +195,14 @@ namespace HFMaracay.API.Controllers
 
 
         [HttpGet]
-        [AllowAnonymous] // esto deberia tenr seguridad pero por tiempo no lo hare 
+        [AllowAnonymous]
         [Route("getusers")]
         public dynamic Getusers()
         {
             return Ok(_usuariosProcess.ListAll());
         }
-          [HttpGet]
-        [AllowAnonymous] // esto deberia tenr seguridad pero por tiempo no lo hare 
+        [HttpGet]
+        [AllowAnonymous]
         [Route("getusers/email/{email}")]
         public dynamic Getusers(string email)
         {
@@ -212,7 +210,7 @@ namespace HFMaracay.API.Controllers
         }
 
         [HttpDelete]
-        [AllowAnonymous] // esto deberia tenr seguridad pero por tiempo no lo hare 
+        [AllowAnonymous]
         [Route("deleteuser/{id}")]
         public dynamic DeleteUser(int id)
         {
@@ -228,7 +226,7 @@ namespace HFMaracay.API.Controllers
         }
 
         [HttpDelete]
-        [AllowAnonymous] // esto deberia tenr seguridad pero por tiempo no lo hare 
+        [AllowAnonymous]
         [Route("deleteuser/email/{email}")]
         public dynamic DeleteUserByemail(string email)
         {
@@ -246,7 +244,7 @@ namespace HFMaracay.API.Controllers
         ////////////////////////////////////////
         ///
         [HttpPost]
-        [AllowAnonymous] // esto deberia tenr seguridad pero por tiempo no lo hare 
+        [AllowAnonymous]
         [Route("addgalery")]
         public dynamic AddGalery([FromBody]Galeria model)
         {
@@ -255,7 +253,7 @@ namespace HFMaracay.API.Controllers
 
 
         [HttpGet]
-        [AllowAnonymous] // esto deberia tenr seguridad pero por tiempo no lo hare 
+        [AllowAnonymous]
         [Route("getgalery")]
         public dynamic GetGalery()
         {
@@ -263,7 +261,7 @@ namespace HFMaracay.API.Controllers
         }
 
         [HttpDelete]
-        [AllowAnonymous] // esto deberia tenr seguridad pero por tiempo no lo hare 
+        [AllowAnonymous]
         [Route("deletegalery/{id}")]
         public dynamic DeleteGalery(int id)
         {
@@ -281,7 +279,7 @@ namespace HFMaracay.API.Controllers
         ///
 
         [HttpPost]
-        [AllowAnonymous] // esto deberia tenr seguridad pero por tiempo no lo hare 
+        [AllowAnonymous]
         [Route("addlevents")]
         public dynamic AddEvents([FromBody]Eventos model)
         {
@@ -290,7 +288,7 @@ namespace HFMaracay.API.Controllers
 
 
         [HttpGet]
-        [AllowAnonymous] // esto deberia tenr seguridad pero por tiempo no lo hare 
+        [AllowAnonymous]
         [Route("getlevents")]
         public dynamic GetEvents()
         {
@@ -298,7 +296,7 @@ namespace HFMaracay.API.Controllers
         }
 
         [HttpDelete]
-        [AllowAnonymous] // esto deberia tenr seguridad pero por tiempo no lo hare 
+        [AllowAnonymous]
         [Route("deleteevents/{id}")]
         public dynamic DeleteEvents(int id)
         {
@@ -316,7 +314,7 @@ namespace HFMaracay.API.Controllers
         //////
         ///
         [HttpPost]
-        [AllowAnonymous] // esto deberia tenr seguridad pero por tiempo no lo hare 
+        [AllowAnonymous]
         [Route("addlBlog")]
         public dynamic AddBlog([FromBody]Blog model)
         {
@@ -325,7 +323,7 @@ namespace HFMaracay.API.Controllers
 
 
         [HttpGet]
-        [AllowAnonymous] // esto deberia tenr seguridad pero por tiempo no lo hare 
+        [AllowAnonymous]
         [Route("getlBlog")]
         public dynamic GetBlog()
         {
@@ -333,8 +331,8 @@ namespace HFMaracay.API.Controllers
         }
 
         [HttpDelete]
-        [AllowAnonymous] // esto deberia tenr seguridad pero por tiempo no lo hare 
-        [Route("deletelBlog/{id}")]
+        [AllowAnonymous]
+        [Route("deletelog/{id}")]
         public dynamic DeleteBlog(int id)
         {
             try
@@ -348,6 +346,89 @@ namespace HFMaracay.API.Controllers
             }
         }
 
+
+        [HttpDelete]
+        [AllowAnonymous]
+        [Route("softdeleteUsuarios/email/{email}")]
+        public dynamic SoftDeleteUsuariosByemail(string email)
+        {
+            try
+            {
+                _usuariosProcess.SoftDeleteByEmail(new Usuarios() { Email = email });
+                return Ok("Sucess");
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+
+
+
+        [HttpDelete]
+        [AllowAnonymous]
+        [Route("softdeleteblog/{id}")]
+        public dynamic SoftDeleteBlog(int id)
+        {
+            try
+            {
+                _blogProcess.SoftDeleteByID( new Blog() {  Id=id});
+                return Ok("Sucess");
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+
+        [HttpDelete]
+        [AllowAnonymous]
+        [Route("softdeleteNiveles/{id}")]
+        public dynamic SoftDeleteNiveles(int id)
+        {
+            try
+            {
+                _nivelProcess.SoftDeleteByID(new Nivel() { Id = id });
+                return Ok("Sucess");
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+
+        [HttpDelete]
+        [AllowAnonymous]
+        [Route("softdeleteEventos/{id}")]
+        public dynamic SoftDeleteEventos(int id)
+        {
+            try
+            {
+                _eventosProcess.SoftDeleteByID(new Eventos() { Id = id });
+                return Ok("Sucess");
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+
+
+        [HttpDelete]
+        [AllowAnonymous]
+        [Route("softdeleteGaleria/{id}")]
+        public dynamic SoftDeleteGaleria(int id)
+        {
+            try
+            {
+                _galeriaProcess.SoftDeleteByID(new Galeria() { Id = id });
+                return Ok("Sucess");
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
 
     }
 }

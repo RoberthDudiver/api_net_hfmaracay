@@ -26,8 +26,17 @@ namespace HFMaracay.Psql.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
+                    b.Property<DateTime>("DateAdd")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<DateTime>("DateUpd")
+                        .HasColumnType("timestamp without time zone");
+
                     b.Property<string>("Descripcion")
                         .HasColumnType("text");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("boolean");
 
                     b.HasKey("Id");
 
@@ -41,11 +50,20 @@ namespace HFMaracay.Psql.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
+                    b.Property<DateTime>("DateAdd")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<DateTime>("DateUpd")
+                        .HasColumnType("timestamp without time zone");
+
                     b.Property<string>("Descripción")
                         .HasColumnType("text");
 
                     b.Property<string>("Imagen")
                         .HasColumnType("text");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Titulo")
                         .HasColumnType("text");
@@ -62,6 +80,12 @@ namespace HFMaracay.Psql.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
+                    b.Property<DateTime>("DateAdd")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<DateTime>("DateUpd")
+                        .HasColumnType("timestamp without time zone");
+
                     b.Property<string>("Descripción")
                         .HasColumnType("text");
 
@@ -76,6 +100,9 @@ namespace HFMaracay.Psql.Migrations
 
                     b.Property<string>("Imagen")
                         .HasColumnType("text");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Lugar")
                         .HasColumnType("text");
@@ -95,11 +122,20 @@ namespace HFMaracay.Psql.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
+                    b.Property<DateTime>("DateAdd")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<DateTime>("DateUpd")
+                        .HasColumnType("timestamp without time zone");
+
                     b.Property<string>("Descripción")
                         .HasColumnType("text");
 
                     b.Property<string>("Imagen")
                         .HasColumnType("text");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Nombre")
                         .HasColumnType("text");
@@ -115,6 +151,15 @@ namespace HFMaracay.Psql.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<DateTime>("DateAdd")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<DateTime>("DateUpd")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("boolean");
 
                     b.Property<string>("IsoCode")
                         .HasColumnType("text");
@@ -144,8 +189,17 @@ namespace HFMaracay.Psql.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
+                    b.Property<DateTime>("DateAdd")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<DateTime>("DateUpd")
+                        .HasColumnType("timestamp without time zone");
+
                     b.Property<string>("Descripcion")
                         .HasColumnType("text");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("boolean");
 
                     b.HasKey("Id");
 
@@ -158,6 +212,15 @@ namespace HFMaracay.Psql.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<DateTime>("DateAdd")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<DateTime>("DateUpd")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Nombre")
                         .HasColumnType("text");
@@ -183,6 +246,12 @@ namespace HFMaracay.Psql.Migrations
                     b.Property<int>("CiudadId")
                         .HasColumnType("integer");
 
+                    b.Property<DateTime>("DateAdd")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<DateTime>("DateUpd")
+                        .HasColumnType("timestamp without time zone");
+
                     b.Property<string>("Email")
                         .HasColumnType("text");
 
@@ -197,6 +266,9 @@ namespace HFMaracay.Psql.Migrations
 
                     b.Property<string>("Instagram")
                         .HasColumnType("text");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Linkedin")
                         .HasColumnType("text");

@@ -10,5 +10,7 @@ namespace HFMaracay.Business.Process
         List<Localidad> ListAll();
         Localidad ListById(int id);
         Localidad Save(Localidad item);
+        void SoftDeleteByID(Localidad item );
+
     }
 }

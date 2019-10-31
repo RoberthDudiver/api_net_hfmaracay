@@ -10,5 +10,7 @@ namespace HFMaracay.Business.Process
         List<Nivel> ListAll();
         Nivel ListById(int id);
         Nivel Save(Nivel item);
+        void SoftDeleteByID(Nivel item );
+
     }
 }

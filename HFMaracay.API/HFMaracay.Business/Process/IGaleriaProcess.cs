@@ -9,5 +9,8 @@ namespace HFMaracay.Business.Process
         List<Galeria> ListAll();
         Galeria ListById(int id);
         Galeria Save(Galeria item);
+
+        void SoftDeleteByID(Galeria item );
+
     }
 }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace HFMaracay.Entities
 {
-    public class TipoLocalidades
+    public class TipoLocalidades: EntitiesBitacora
     {
         public int Id { get; set; }
         public string Nombre { get; set; }

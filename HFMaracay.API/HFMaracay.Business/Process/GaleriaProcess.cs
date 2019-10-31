@@ -37,6 +37,17 @@ namespace HFMaracay.Business.Process
             Context.SaveChanges();
         }
 
-
+        public void SoftDeleteByID(Galeria item )
+        {
+            item.DateUpd = DateTime.Now;
+       
+                if (item.Id != 0)
+                {
+                    var Data = Context.Galeria.FirstOrDefault(x => x.Id == item.Id);
+                Data.IsDeleted = true;
+                }
+       
+            Context.SaveChanges();
+        }
     }
 }

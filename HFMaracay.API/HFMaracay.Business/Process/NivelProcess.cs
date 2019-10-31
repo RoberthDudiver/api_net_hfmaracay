@@ -14,12 +14,12 @@ namespace HFMaracay.Business.Process
 
         public Nivel ListById(int id)
         {
-            return Context.Niveles.FirstOrDefault(x => x.Id == id);
+            return Context.Niveles.FirstOrDefault(x => x.Id == id && !x.IsDeleted);
         }
 
         public Nivel GetByDescripcion(string Descripcion)
         {
-            return Context.Niveles.FirstOrDefault(x => x.Descripcion == Descripcion);
+            return Context.Niveles.FirstOrDefault(x => x.Descripcion == Descripcion && !x.IsDeleted);
         }
 
         public Nivel Save(Nivel item)
@@ -42,6 +42,17 @@ namespace HFMaracay.Business.Process
             Context.SaveChanges();
         }
 
-
+        public void SoftDeleteByID(Nivel item )
+        {
+            item.DateUpd = DateTime.Now;
+        
+                if (item.Id != 0)
+                {
+                    var Data = Context.Niveles.FirstOrDefault(x => x.Id == item.Id);
+                Data.IsDeleted = true;
+                }
+     
+            Context.SaveChanges();
+        }
     }
 }

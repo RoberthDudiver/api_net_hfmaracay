@@ -14,7 +14,7 @@ namespace HFMaracay.Business.Process
 
         public Eventos ListById(int id)
         {
-            return Context.Eventos.FirstOrDefault(x => x.Id == id);
+            return Context.Eventos.FirstOrDefault(x => x.Id == id && !x.IsDeleted);
         }
 
         public Eventos Save(Eventos item)
@@ -37,6 +37,17 @@ namespace HFMaracay.Business.Process
             Context.SaveChanges();
         }
 
-
+        public void SoftDeleteByID(Eventos item)
+        {
+            item.DateUpd = DateTime.Now;
+       
+                if (item.Id != 0)
+                {
+                    var Data = Context.Eventos.FirstOrDefault(x => x.Id == item.Id);
+                    Data.IsDeleted = true;
+                }
+      
+            Context.SaveChanges();
+        }
     }
 }

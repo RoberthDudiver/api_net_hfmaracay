@@ -9,5 +9,6 @@ namespace HFMaracay.Business.Process
         List<Blog> ListAll();
         Blog ListById(int id);
         Blog Save(Blog item);
+        void SoftDeleteByID(Blog item);
     }
 }
